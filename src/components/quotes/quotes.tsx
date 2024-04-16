@@ -11,7 +11,7 @@ export default async function Quotes(): Promise<ReactElement> {
 
   return (
     <div>
-      {quote.id !== 0 ? (
+      {quote.id !== -1 ? (
         <div className="h-full flex flex-col justify-center items-center text-center">
           <QuotesHeader />
           <QuotesDisplay Quote={quote} />

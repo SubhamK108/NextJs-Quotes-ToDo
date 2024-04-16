@@ -1,7 +1,7 @@
 "use server";
 
 import { delay } from "@/lib/utils";
-import { InvalidQuote, Quote } from "@/models/Quote";
+import { EmptyQuote, Quote } from "@/models/Quote";
 import { revalidateTag } from "next/cache";
 
 export async function getQuote(): Promise<Quote> {
@@ -15,7 +15,7 @@ export async function getQuote(): Promise<Quote> {
       throw new Error();
     }
   } catch {
-    return { ...InvalidQuote };
+    return { ...EmptyQuote, id: -1 };
   }
 }
 
