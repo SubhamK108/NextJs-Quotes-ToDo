@@ -1,21 +1,21 @@
 "use server";
 
 import { delay } from "@/lib/utils";
-import { Quote } from "@/models/Quote";
+import { InvalidQuote, Quote } from "@/models/Quote";
 import { revalidateTag } from "next/cache";
 
-export async function getQuote(): Promise<Quote | null> {
+export async function getQuote(): Promise<Quote> {
   await delay(500);
   try {
-    const req = await fetch("https://dummyjson.com/quotes/random", { cache: "no-store", next: { tags: ["quotes"] } });
-    if (req.ok) {
-      const res: Quote = await req.json();
-      return res;
+    const res = await fetch("https://dummyjson.com/quotes/random", { cache: "no-store", next: { tags: ["quotes"] } });
+    if (res.ok) {
+      const data: Quote = await res.json();
+      return data;
     } else {
       throw new Error();
     }
   } catch {
-    return null;
+    return { ...InvalidQuote };
   }
 }
 

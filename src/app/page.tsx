@@ -1,6 +1,6 @@
 import { ReactElement, Suspense } from "react";
 import Quotes from "../components/home/quotes";
-import { CircularSpinnerLarge } from "../components/spinners";
+import { CircularSpinnerLarge } from "../components/shared/spinners";
 
 export default async function Home(): Promise<ReactElement> {
   return (
