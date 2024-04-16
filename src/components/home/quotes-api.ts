@@ -5,7 +5,7 @@ import { Quote } from "@/models/Quote";
 import { revalidateTag } from "next/cache";
 
 export async function getQuote(): Promise<Quote | null> {
-  await delay(1500);
+  await delay(500);
   try {
     const req = await fetch("https://dummyjson.com/quotes/random", { cache: "no-store", next: { tags: ["quotes"] } });
     if (req.ok) {

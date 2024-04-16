@@ -31,16 +31,8 @@ export default function QuotesDisplay(props: QuotesDisplayProps): ReactElement {
         </div>
       ) : (
         <div>
-          <p className="text-4xl max-sm:text-[1.6rem] leading-relaxed italic">
-            <b>
-              <i>“</i>
-            </b>
-            {quote.quote}
-            <b>
-              <i>”</i>
-            </b>
-          </p>
-          <p className="mt-6 text-[1.7rem] max-sm:mt-3 max-sm:text-[1.4rem] tracking-wider">{`— ${quote.author}`}</p>
+          <p className="text-4xl max-sm:text-[1.6rem] leading-relaxed italic">{`“${quote.quote}”`}</p>
+          <p className="mt-6 text-[1.7rem] max-sm:mt-3 max-sm:text-[1.4rem] tracking-widest max-sm:tracking-wider">{`— ${quote.author}`}</p>
         </div>
       )}
       <button
