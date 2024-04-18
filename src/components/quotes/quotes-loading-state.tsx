@@ -1,19 +1,12 @@
 import { ReactElement } from "react";
-import QuotesHeader from "./quotes-header";
-import QuotesDisplay from "./quotes-display";
-import Link from "next/link";
-import { EmptyQuote } from "@/models/Quote";
 
 export default function QuotesLoadingState(): ReactElement {
   return (
-    <div className="h-full flex flex-col justify-center items-center text-center">
-      <QuotesHeader />
-      <QuotesDisplay Quote={EmptyQuote} RequestResult="NOT_MADE" />
-      <Link href="/todos">
-        <button className="mt-6 mb-5 max-sm:mt-4 max-sm:mb-3 text-3xl max-sm:text-2xl rounded-xl bg-[#074DA6] dark:bg-[#05336E] hover:bg-[#05346e] dark:hover:bg-[#04234D] hover:ring hover:ring-[#0091ff] dark:hover:ring-[#074DA6] text-gray-200 p-2 h-[4.5rem] w-56 max-sm:h-16 max-sm:w-44">
-          {"Today's Tasks"}
-        </button>
-      </Link>
+    <div className="mt-16 w-[50rem] max-sm:mt-7 max-sm:w-auto max-sm:px-10 font-sans">
+      <div className="mt-5 mb-3 max-sm:mt-4 max-sm:mb-2 animate-pulse">
+        <p className="mx-auto h-24 w-[46rem] max-sm:w-[19rem] bg-zinc-400 dark:bg-zinc-800 rounded"></p>
+        <p className="mt-10 max-sm:mt-6 mx-auto h-11 w-[15rem] max-sm:w-[11rem] bg-zinc-400 dark:bg-zinc-800 rounded"></p>
+      </div>
     </div>
   );
 }
