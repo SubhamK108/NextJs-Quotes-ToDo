@@ -11,7 +11,7 @@ export function CircularSpinner(): ReactElement {
 export function CircularSpinnerSmall(): ReactElement {
   return (
     <div className="m-2 flex flex-row space-x-4 justify-center items-center">
-      <div className="w-7 h-7 max-sm:w-5 max-sm:h-5 rounded-full animate-spin border-[3.5px] max-sm:border-[2px] border-solid border-current border-t-transparent"></div>
+      <div className="w-10 h-10 max-sm:w-8 max-sm:h-8 rounded-full animate-spin border-[4px] max-sm:border-[3px] border-solid border-current border-t-transparent"></div>
     </div>
   );
 }
