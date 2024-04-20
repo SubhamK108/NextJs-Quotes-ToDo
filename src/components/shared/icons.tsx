@@ -8,7 +8,7 @@ export function TrashIcon(): ReactElement {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-[1.85rem] h-[1.85rem] max-sm:w-[1.43rem] max-sm:h-[1.43rem] drop-shadow-md"
+      className="w-[1.85rem] h-[1.85rem] max-sm:w-[1.38rem] max-sm:h-[1.38rem] drop-shadow-md"
     >
       <path
         strokeLinecap="round"
@@ -25,7 +25,7 @@ export function PlusCircleIcon(): ReactElement {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="w-[3.7rem] max-sm:w-[3.1rem] h-[3.7rem] max-sm:h-[3.1rem] drop-shadow-lg"
+      className="w-[3.7rem] max-sm:w-[2.75rem] h-[3.7rem] max-sm:h-[2.75rem] drop-shadow-lg"
     >
       <path
         fillRule="evenodd"

@@ -36,12 +36,12 @@ export default function ToDos(): ReactElement {
     if (localStorage.getItem("userId") !== null) {
       currentUserId = parseInt(localStorage.getItem("userId")!);
     } else {
-      currentUserId = getRandomNumber(0, 50);
-      localStorage.setItem("userId", `${currentUserId}`);
+      currentUserId = getRandomNumber(1, 50);
     }
     const data: [UserToDo, ToDosRequestResult] = await getToDos(currentUserId);
     if (data[1] === "GET_SUCCESS") {
       setUserToDo(data[0]);
+      localStorage.setItem("userId", `${currentUserId}`);
       localStorage.setItem("userToDo", JSON.stringify(data[0]));
     } else {
       setIsError(true);
@@ -121,7 +121,7 @@ export default function ToDos(): ReactElement {
 
   return (
     <div className="h-full flex flex-col justify-center items-center text-center">
-      <Header Heading="Things To Do Today" />
+      <Header Heading="Your Tasks" />
       {loading ? (
         <ToDosLoadingState />
       ) : (
@@ -130,7 +130,7 @@ export default function ToDos(): ReactElement {
       <div className="mt-7 max-sm:mt-[0.9rem] flex flex-col justify-center items-center">
         <div className="flex flex-row justify-center items-center">
           <input
-            className="text-3xl max-sm:text-[1.4rem] border border-[#AEAEAE] rounded-lg font-sans h-11 max-sm:h-9 w-[38.5rem] max-sm:w-[18.5rem] mx-3 max-sm:mx-2 text-center"
+            className="text-3xl max-sm:text-[1.2rem] border border-[#AEAEAE] rounded-lg font-sans h-11 max-sm:h-8 w-[38.5rem] max-sm:w-[18.5rem] mx-3 max-sm:mx-2 text-center"
             type="text"
             value={newToDoText}
             onInput={(e) => setNewToDoText(e.currentTarget.value)}
