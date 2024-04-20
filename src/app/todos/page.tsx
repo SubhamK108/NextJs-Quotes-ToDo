@@ -126,19 +126,24 @@ export default function ToDos(): ReactElement {
       ) : (
         <TodosDisplay ToDos={userToDo} ToggleCheckToDo={toggleCheckToDo} DeleteToDo={deleteToDo} />
       )}
-      <div className="mt-7 max-sm:mt-[0.9rem] flex flex-col justify-center items-center">
-        <div className="flex flex-row justify-center items-center">
+      <div className="mt-6 max-sm:mt-[0.9rem] flex flex-col justify-center items-center">
+        <div className="flex flex-row justify-center items-center gap-x-4 max-sm:gap-x-2">
           <input
-            className="text-3xl max-sm:text-[1.2rem] border border-[#AEAEAE] rounded-lg font-sans h-11 max-sm:h-8 w-[38.5rem] max-sm:w-[18.5rem] mx-3 max-sm:mx-2 text-center"
+            className="text-2xl max-sm:text-[1.2rem] border border-[#AEAEAE] rounded-lg font-sans h-11 max-sm:h-8 w-[38.5rem] max-sm:w-[18.5rem] text-center"
             type="text"
             value={newToDoText}
             onInput={(e) => setNewToDoText(e.currentTarget.value)}
             placeholder="Add a new task..."
             disabled={loading}
           />
-          <div className="cursor-pointer hover:text-[#26272A] dark:hover:text-white" title="Add ToDo" onClick={addNewToDo}>
+          <button
+            className="cursor-pointer disabled:cursor-default hover:text-[#26272A] dark:hover:text-white disabled:text-zinc-500 dark:disabled:text-zinc-600"
+            title="Add Task"
+            onClick={addNewToDo}
+            disabled={newToDoText === ""}
+          >
             <PlusCircleIcon />
-          </div>
+          </button>
         </div>
         <button
           className="mt-6 max-sm:mt-4 text-3xl max-sm:text-2xl rounded-xl bg-green-700 dark:bg-green-900 hover:bg-green-900 dark:hover:bg-green-950 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 hover:ring hover:ring-green-500 dark:hover:ring-green-700 disabled:ring-transparent dark:disabled:ring-transparent text-gray-200 disabled:text-zinc-300 dark:disabled:text-zinc-600 p-2 h-[4.5rem] w-56 max-sm:h-16 max-sm:w-44"

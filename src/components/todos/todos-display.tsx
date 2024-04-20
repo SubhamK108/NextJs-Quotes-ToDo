@@ -10,7 +10,7 @@ interface NotesDisplayProps {
 
 export default function TodosDisplay({ ToDos, ToggleCheckToDo, DeleteToDo }: NotesDisplayProps): ReactElement {
   return (
-    <div className="mt-12 w-[50rem] max-sm:mt-4 max-sm:mb-1 max-sm:w-auto max-sm:px-6 font-sans">
+    <div className="mt-12 w-[50rem] max-sm:mt-4 max-sm:mb-1 max-sm:w-auto max-sm:px-8 font-sans">
       <div className="mt-5 mb-3 max-sm:mt-4 max-sm:mb-2 flex flex-col justify-center items-center">
         {ToDos.total === 0 ? (
           <div className="mb-4 h-[15.25rem] max-sm:h-[12.75rem] flex flex-col justify-center items-center">
@@ -20,15 +20,15 @@ export default function TodosDisplay({ ToDos, ToggleCheckToDo, DeleteToDo }: Not
           <ul className="list-none">
             {ToDos.todos.map((todo: ToDo, index: number) => (
               <li key={index}>
-                <div className="flex flex-row items-center text-left my-3 max-sm:my-1">
+                <div className="flex flex-row items-center text-left gap-x-3 max-sm:gap-x-2 my-3 max-sm:my-1">
                   <input
                     type="checkbox"
                     checked={todo.completed}
                     onChange={() => ToggleCheckToDo(todo)}
-                    className="mx-3 max-sm:mx-2 h-5 w-5 min-w-5 max-sm:h-[1.1rem] max-sm:w-[1.1rem] max-sm:min-w-[1.1rem] cursor-pointer"
+                    className="h-5 w-5 min-w-5 max-sm:h-[1.1rem] max-sm:w-[1.1rem] max-sm:min-w-[1.1rem] cursor-pointer"
                   />
                   <p
-                    className={`text-3xl max-sm:text-[1.2rem] leading-[1.75rem] cursor-pointer select-none ${
+                    className={`text-2xl max-sm:text-[1.2rem] leading-[1.75rem] cursor-pointer select-none ${
                       todo.completed && "line-through"
                     }`}
                     onClick={() => ToggleCheckToDo(todo)}
@@ -36,7 +36,7 @@ export default function TodosDisplay({ ToDos, ToggleCheckToDo, DeleteToDo }: Not
                     {todo.todo}
                   </p>
                   <div
-                    className="mx-3 max-sm:mx-2 cursor-pointer hover:text-[#26272A] dark:hover:text-white"
+                    className="cursor-pointer hover:text-[#26272A] dark:hover:text-white"
                     title="Delete ToDo"
                     onClick={() => DeleteToDo(todo)}
                   >

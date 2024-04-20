@@ -8,7 +8,7 @@ export function TrashIcon(): ReactElement {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-[1.85rem] h-[1.85rem] max-sm:w-[1.38rem] max-sm:h-[1.38rem] drop-shadow-md"
+      className="w-[1.8rem] h-[1.8rem] max-sm:w-[1.38rem] max-sm:h-[1.38rem] drop-shadow-md"
     >
       <path
         strokeLinecap="round"
