@@ -2,7 +2,7 @@
 
 import ErrorPage from "@/components/shared/error-page";
 import Header from "@/components/shared/header";
-import { PlusCircleIcon } from "@/components/shared/icons";
+import { CheckIcon, PlusCircleIcon, XMarkIcon } from "@/components/shared/icons";
 import { CircularSpinnerSmall } from "@/components/shared/spinners";
 import { ToDosRequestResult, getToDos, syncToDos } from "@/components/todos/todos-api";
 import TodosDisplay from "@/components/todos/todos-display";
@@ -20,7 +20,7 @@ export default function ToDos(): ReactElement {
   const [isError, setIsError] = useState<boolean>(false);
   const [newToDoText, setNewToDoText] = useState<string>("");
   const [startedSync, setStartedSync] = useState<boolean>(false);
-  const [syncInfo, setSyncInfo] = useState<string>("");
+  const [syncInfo, setSyncInfo] = useState<ToDosRequestResult>("NOT_MADE");
   const [syncInfoShown, setSyncInfoShown] = useState<boolean>(false);
 
   async function getAllToDos(): Promise<void> {
@@ -102,13 +102,12 @@ export default function ToDos(): ReactElement {
     const response: ToDosRequestResult = await syncToDos(userToDo.todos);
     if (response === "POST_SUCCESS") {
       localStorage.setItem("userToDo", JSON.stringify(userToDo));
-      setSyncInfo("✓");
     } else {
-      setSyncInfo("✕");
     }
+    setSyncInfo(response);
     setSyncInfoShown(true);
     setStartedSync(false);
-    setTimeout(() => setSyncInfoShown(false), 2500);
+    setTimeout(() => setSyncInfoShown(false), 3000);
   }
 
   if (!loading && isError) {
@@ -149,7 +148,15 @@ export default function ToDos(): ReactElement {
           {startedSync ? (
             <CircularSpinnerSmall />
           ) : syncInfoShown ? (
-            <p className="font-bold text-[2.5rem] max-sm:text-[1.95rem]">{syncInfo}</p>
+            syncInfo === "POST_SUCCESS" ? (
+              <div className="flex justify-center items-center">
+                <CheckIcon />
+              </div>
+            ) : (
+              <div className="flex justify-center items-center">
+                <XMarkIcon />
+              </div>
+            )
           ) : (
             "Sync Tasks"
           )}
