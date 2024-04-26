@@ -1,6 +1,6 @@
 # NextJs Quotes ToDo
 
-> This was initially created for teaching & demonstrating the features of [Next.js](https://nextjs.org/).
+> This was initially created for teaching & demonstrating the features of [NextJS](https://nextjs.org/) and [TailwindCSS](https://tailwindcss.com/).
 
 ## Features
 
